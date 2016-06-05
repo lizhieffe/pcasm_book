@@ -60,7 +60,7 @@ segment .text
         global  asm_main
 asm_main:
         enter   0,0               ; setup routine
-        pusha
+	pusha
 
         mov     eax, prompt1      ; print out prompt
         call    print_string
@@ -96,7 +96,7 @@ asm_main:
         call    print_int         ; print out sum (ebx)
         call    print_nl          ; print new-line
 
-        popa
+	popa
         mov     eax, 0            ; return back to C
         leave                     
         ret
