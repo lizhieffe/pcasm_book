@@ -1,3 +1,4 @@
+rm a.out
 gcc -c driver.c | exit 1
 nasm -f elf32 math.asm 
 nasm -f elf32 -d ELF_TYPE asm_io.asm 
