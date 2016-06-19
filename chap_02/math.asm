@@ -32,6 +32,44 @@ asm_main:
         call    print_int
         call    print_nl
 
+        mov     ebx, eax
+        imul    ebx, [input]  ; ebx *= [input]
+        mov     eax, cube_msg
+        call    print_string
+        mov     eax, ebx
+        call    print_int
+        call    print_nl
+
+        imul    ecx, ebx, 25  ; ecx = ebx*25
+        mov     eax, cube25_msg
+        call    print_string
+        mov     eax, ecx
+        call    print_int
+        call    print_nl
+
+        mov     eax, ebx
+        cdq                   ; initialize edx by sign extension
+        mov     ecx, 100      ; can't divide by immediate value
+        idiv    ecx           ; edx:eax / ecx
+        mov     ecx, eax      ; save quotient into ecx
+        mov     eax, quot_msg
+        call    print_string
+        mov     eax, ecx
+        call    print_int
+        call    print_nl
+        mov     eax, rem_msg
+        call    print_string
+        mov     eax, edx
+        call    print_int
+        call    print_nl
+
+        neg     edx
+        mov     eax, neg_msg
+        call    print_string
+        mov     eax, edx
+        call    print_int
+        call    print_nl
+
         popa
         mov     eax, 0    ; return back to C
         leave
